@@ -75,7 +75,6 @@ def viewRentalFlats():
     RentalFlats = db.RentalFlats.find({},{'_id':0})
     listOfTowns = db.RentalFlats.distinct('town')
     index = db.RentalFlats.count_documents({})
-    print(index)
 
     if request.method == 'POST':
         townFilter = request.form.get('location')
@@ -85,26 +84,23 @@ def viewRentalFlats():
         else:
             RentalFlats = db.RentalFlats.find({},{'_id':0})
 
-    print(listOfTowns)
     return render_template("viewRentalFlats.html", RentalFlats=RentalFlats)
 
 @views.route('/MOEprogrammes', methods=['GET', 'POST'])
 @login_required
 def viewMOEprogrammes():
     MOEProgrammes = db.MOEProgrammes.find({},{'_id':0})
-    listOfTowns = db.MOEProgrammes.distinct('school_name')
+    listOfSchools = db.MOEProgrammes.distinct('school_name')
     index = db.MOEProgrammes.count_documents({})
-    print(index)
 
     if request.method == 'POST':
         schoolFilter = request.form.get('school_name')
         schoolFilter = schoolFilter.upper()
         if schoolFilter != "":
-            MOEProgrammes = db.MOEProgrammes.find({'school_name':schoolFilter})
+            MOEProgrammes = db.MOEProgrammes.find({'school_name':{'$regex': schoolFilter}})
         else:
             MOEProgrammes = db.MOEProgrammes.find({},{'_id':0})
 
-    print(listOfTowns)
     return render_template("viewMOEProgrammes.html", MOEProgrammes=MOEProgrammes)
 
 @views.route('/CCAs', methods=['GET', 'POST'])
@@ -113,18 +109,16 @@ def viewCCAs():
     SchoolCCAs = db.SchoolCCAs.find({},{'_id':0})
     listofCCAs = db.SchoolCCAs.distinct('cca_generic_name')
     index = db.SchoolCCAs.count_documents({})
-    print(index)
 
     if request.method == 'POST':
         ccaFilter = request.form.get('CCA_name')
         ccaFilter = ccaFilter.upper()
         print(ccaFilter)
         if ccaFilter != "":
-            SchoolCCAs = db.SchoolCCAs.find({'cca_generic_name':ccaFilter})
+            SchoolCCAs = db.SchoolCCAs.find({'cca_generic_name':{'$regex':ccaFilter}})
         else:
             SchoolCCAs = db.SchoolCCAs.find({},{'_id':0})
 
-    print(listofCCAs)
     return render_template("viewCCAs.html", SchoolCCAs=SchoolCCAs)
 
 @views.route('/schoolInfo', methods=['GET', 'POST'])
@@ -133,13 +127,12 @@ def viewSchoolInfo():
     SchoolGeneralInformation = db.SchoolGeneralInformation.find({},{'_id':0})
     schoolListName = db.SchoolGeneralInformation.distinct('school_name')
     index = db.SchoolGeneralInformation.count_documents({})
-    print(index)
 
     if request.method == 'POST':
         schoolFilter = request.form.get('school_name')
         schoolFilter = schoolFilter.upper()
         if schoolFilter != "":
-            SchoolGeneralInformation = db.SchoolGeneralInformation.find({'school_name':schoolFilter})
+            SchoolGeneralInformation = db.SchoolGeneralInformation.find({'school_name':{'$regex': schoolFilter}})
         else:
             SchoolGeneralInformation = db.SchoolGeneralInformation.find({},{'_id':0})
 
@@ -151,7 +144,6 @@ def viewSGpopulation():
     SGHDBPopulationEstimate = db.SGHDBPopulationEstimate.find({},{'_id':0})
     townListName = db.SGHDBPopulationEstimate.distinct('town_name')
     index = db.SGHDBPopulationEstimate.count_documents({})
-    print(index)
 
     if request.method == 'POST':
         townFilter = request.form.get('town_name')
@@ -169,7 +161,6 @@ def viewResaleFlats():
     ResaleFlats2017onwards = db.ResaleFlats2017onwards.find({},{'_id':0}).limit(1000)
     townListName = db.ResaleFlats2017onwards.distinct('town')
     index = db.ResaleFlats2017onwards.count_documents({})
-    print(index)
 
     if request.method == 'POST':
         townFilter = request.form.get('town_name')

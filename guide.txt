@@ -1,5 +1,12 @@
-install flask, passlib through pip
-don't need to run convertCSV, its already converted to the cloud db
-just run the main.py, head to the address provided in terminal
+install these
+1) pip install flask
+2) pip install passlib
+3) pip install pymongo
 
-Log in credentials are user@gmail.com, password
+run main.py
+go to http://localhost:8000/
+
+example account - email: user@gmail.com, password: password
+
+don't need to run convertCSV, its already converted the csv to json and pushed to the cloud atlas db
+
