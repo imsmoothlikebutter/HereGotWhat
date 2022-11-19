@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}SG Population | Here Got What?{% endblock %}
+{% block body%}
+<h3 align="center" style="padding-top:10px">SG HDB Population</h3>
+<form method="POST">
+    <div class="form-row"  style="padding-top:10px">
+        <div class="form-group">
+            <div class="col">
+                <input type="text" class="form-control form-control-lg" id="town_name" name="town_name" placeholder="Enter Town Name"/>
+            </div>
+            <div class="col text-center">
+                  <button type="submit" class="btn btn-warning">Reset</button>
+            </div>
+    </div>
+</form>
+<br>
+<div class="card-columns" style="padding-left: 40px; padding-right: 40px">
+    {% for town in SGHDBPopulationEstimate%}
+    <div class="card text-white bg-dark mb-3 col-lg-4 " style="max-width: 35rem;">
+        <div class="card-header">{{town.town_or_estate}} {{town.financial_year}}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{town.population}} people</h5>
+        </div>
+      </div>
+    {%endfor%}
+</div>
+
+
+{% endblock %}

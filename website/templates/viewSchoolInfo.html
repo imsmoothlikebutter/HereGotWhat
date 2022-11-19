@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}School Info | Here Got What?{% endblock %}
+{% block body%}
+<h3 align="center" style="padding-top:10px">School's Information</h3>
+<form method="POST">
+    <div class="form-row"  style="padding-top:10px">
+        <div class="form-group">
+            <div class="col">
+                <input type="text" class="form-control form-control-lg" id="school_name" name="school_name" placeholder="Enter School Name"/>
+            </div>
+            <div class="col text-center">
+                  <button type="submit" class="btn btn-warning">Reset</button>
+            </div>
+    </div>
+</form>
+<br>
+<div class="card-columns" style="padding-left: 40px; padding-right: 40px">
+    {% for school in SchoolGeneralInformation%}
+    <div class="card text-white bg-dark mb-3 col-lg-4 " style="max-width: 35rem;">
+        <div class="card-header">{{school.school_name}}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{school.address}} {{school.postal_code}}</h5>
+          <a class="card-text" href="{{school.url_address}}">{{school.url_address}}</a>
+          <p class="card-text">{{school.telephone_no}} | {{school.telephone_no2}} Fax: {{school.fax_no}}</p>
+          <p class="card-text">Email: {{school.email_address}}</p>
+          <p class="card-text">Principal: {{school.principal_name}}</p>
+          <p class="card-text">Vice-Principal: {{school.first_vp_name}}</p>
+
+
+        </div>
+      </div>
+    {%endfor%}
+</div>
+
+
+{% endblock %}

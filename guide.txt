@@ -1,0 +1,5 @@
+install flask, passlib through pip
+don't need to run convertCSV, its already converted to the cloud db
+just run the main.py, head to the address provided in terminal
+
+Log in credentials are user@gmail.com, password

@@ -1,0 +1,75 @@
+# Metadata for Renting Out of Flats 2022
+---
+Identifier: '8824f0c8-17ff-4930-a8df-eed8958e5dd4'
+Name: 'renting-out-of-flats'
+Title: 'Renting Out of Flats 2022'
+Description: 'Market rental rates by approval date. The rental should be taken as
+  indicative only as the rental agreed between the flat owners and tenants are dependent
+  on many factors. The rental is based on the declaration by the flat owner. HDB does
+  not verify the accuracy of the data.'
+Topics:
+  - 'Infrastructure'
+Keywords:
+  - 'HDB'
+  - 'Housing'
+  - 'Property'
+  - 'Rental flats'
+Publisher:
+  Name: 'Housing and Development Board'
+  Admin 1:
+    Name: 'Lim Hui Ying'
+    Department: 'HDB'
+    Email: 'lim_hui_ying@hdb.gov.sg'
+  Admin 2:
+    Name: 'Toh Xue Qin'
+    Department: 'HDB'
+    Email: 'TOH_Xue_Qin@hdb.gov.sg'
+Sources:
+  - 'Housing and Development Board'
+Source Url: 'https://services2.hdb.gov.sg/webapp/BR12AWRentalEnq/BR12PSearch.jsp'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Monthly'
+Coverage: '2021-01-01 to 2022-10-31'
+Last Updated: '2022-11-02T07:07:57.158372'
+Resources:
+  -
+    Identifier: '9caa8451-79f3-4cd6-a6a7-9cecc6d59544'
+    Title: 'Renting Out of Flats'
+    Url: 'https://storage.data.gov.sg/renting-out-of-flats/resources/renting-out-of-flats-2022-11-02T07-07-56Z.csv'
+    Format: 'CSV'
+    Coverage: '2021-01-01 to 2022-10-31'
+    Description: 'Renting out of flats'
+    Last Updated: '2022-11-02T07:07:56.673199'
+    Schema:
+      -
+        Name: 'rent_approval_date'
+        Title: 'Rent approval date'
+        Type: 'datetime'
+        Sub Type: 'month'
+        Format: 'YYYY-MM'
+      -
+        Name: 'town'
+        Title: 'Town'
+        Type: 'text'
+        Sub Type: 'general'
+      -
+        Name: 'block'
+        Title: 'Block'
+        Type: 'text'
+        Sub Type: 'general'
+      -
+        Name: 'street_name'
+        Title: 'Street name'
+        Type: 'text'
+        Sub Type: 'general'
+      -
+        Name: 'flat_type'
+        Title: 'Flat type'
+        Type: 'text'
+        Sub Type: 'general'
+      -
+        Name: 'monthly_rent'
+        Title: 'Monthly rent'
+        Type: 'numeric'
+        Sub Type: 'general'
+        Unit Of Measure: '$'

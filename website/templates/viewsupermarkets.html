@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Supermarkets | Here Got What?{% endblock %}
+{% block body%}
+<h3 align="center" style="padding-top:10px">Supermarkets</h3>
+<form method="POST">
+    <div class="form-row"  style="padding-top:10px">
+        <div class="form-group">
+            <div class="col">
+                <input type="text" class="form-control form-control-lg" id="location" name="location" placeholder="Enter town"/>
+            </div>
+            <div class="col text-center">
+                  <button type="submit" class="btn btn-warning">Reset</button>
+            </div>
+    </div>
+</form>
+<div class="card-columns" style="padding-left: 40px; padding-right: 40px">
+    {% for supermarket in SupermarketQueries%}
+    <div class="card text-white bg-dark mb-3 col-lg-4 " style="max-width: 35rem;">
+        <div class="card-header">{{supermarket.business_name}}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{supermarket.premise_address}}</h5>
+          <p class="card-text">Name of License: {{supermarket.name_of_license}}</p>
+        </div>
+      </div>
+    {%endfor%}
+</div>
+
+
+{% endblock %}
