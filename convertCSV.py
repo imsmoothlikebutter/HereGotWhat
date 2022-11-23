@@ -7,6 +7,7 @@ import pymongo
 
 
 client = pymongo.MongoClient("mongodb+srv://admin:adminPassword@cluster0.ivh8z2v.mongodb.net/?retryWrites=true&w=majority")
+#client = pymongo.MongoClient('hostname', 27017)
 #db = client.test
 
 

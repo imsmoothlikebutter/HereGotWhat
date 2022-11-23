@@ -4,6 +4,8 @@ import uuid
 import pymongo
 
 client = pymongo.MongoClient("mongodb+srv://admin:adminPassword@cluster0.ivh8z2v.mongodb.net/?retryWrites=true&w=majority")
+
+
 UsersDB = client.HereGotWhat
 
 

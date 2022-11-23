@@ -43,7 +43,7 @@ def viewPharmacy():
         townFilter = request.form.get('location')
         townFilter = capFirstLetterEveryWord(townFilter)
         if townFilter != "":
-            PharmaciesQuery = db.LicensedPharmacies.find({'Town':townFilter})
+            PharmaciesQuery = db.LicensedPharmacies.find({'Town':{'$regex': townFilter}})
         else:
             PharmaciesQuery = db.LicensedPharmacies.find({},{'_id':0})
 
@@ -62,7 +62,7 @@ def viewSupermarket():
         townFilter = request.form.get('location')
         townFilter = townFilter.upper()
         if townFilter != "":
-            SupermarketQueries = db.Supermarkets.find({'town':townFilter})
+            SupermarketQueries = db.Supermarkets.find({'town':{'$regex': townFilter}})
         else:
             SupermarketQueries = db.Supermarkets.find({},{'_id':0})
 
@@ -149,7 +149,7 @@ def viewSGpopulation():
         townFilter = request.form.get('town_name')
         townFilter = capFirstLetterEveryWord(townFilter)
         if townFilter != "":
-            SGHDBPopulationEstimate = db.SGHDBPopulationEstimate.find({'town_or_estate':townFilter})
+            SGHDBPopulationEstimate = db.SGHDBPopulationEstimate.find({'town_or_estate':{'$regex': townFilter}})
         else:
             SGHDBPopulationEstimate = db.SGHDBPopulationEstimate.find({},{'_id':0})
 
@@ -166,7 +166,7 @@ def viewResaleFlats():
         townFilter = request.form.get('town_name')
         townFilter = townFilter.upper()
         if townFilter != "":
-            ResaleFlats2017onwards = db.ResaleFlats2017onwards.find({'town':townFilter})
+            ResaleFlats2017onwards = db.ResaleFlats2017onwards.find({'town':{'$regex': townFilter}})
         else:
             ResaleFlats2017onwards = db.ResaleFlats2017onwards.find({},{'_id':0}).limit(1000)
 
