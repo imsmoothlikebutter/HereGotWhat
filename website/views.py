@@ -31,7 +31,18 @@ def login_required(f):
 @views.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template("dashboard.html")
+    PharmaciesQuery = db.LicensedPharmacies.count_documents({})
+    SupermarketQueries = db.Supermarkets.count_documents({})
+    RentalFlats = db.RentalFlats.count_documents({})
+    MOEProgrammes = db.MOEProgrammes.count_documents({})
+    SchoolCCAs = db.SchoolCCAs.count_documents({})
+    SchoolGeneralInformation = db.SchoolGeneralInformation.count_documents({})
+    SGHDBPopulationEstimate = db.SGHDBPopulationEstimate.count_documents({})
+    ResaleFlats2017onwards = db.ResaleFlats2017onwards.count_documents({})
+    return render_template("dashboard.html", PharmaciesQuery=PharmaciesQuery,SupermarketQueries=SupermarketQueries
+    ,RentalFlats=RentalFlats,MOEProgrammes=MOEProgrammes,SchoolCCAs=SchoolCCAs,SchoolGeneralInformation=SchoolGeneralInformation,
+    SGHDBPopulationEstimate=SGHDBPopulationEstimate,ResaleFlats2017onwards=ResaleFlats2017onwards)
+
 
 @views.route('/pharmacies', methods=['GET','POST'])
 @login_required
