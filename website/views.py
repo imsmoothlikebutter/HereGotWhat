@@ -211,9 +211,12 @@ def viewCCAs():
 @login_required
 def viewSchoolInfo():
     SchoolGeneralInformation = db.SchoolGeneralInformation.find({},{'_id':0})
-    SchoolSubjectsOffered = db.SchoolSubjectsOffered.find({},{'_id':0})
+    SchoolSubjectsOffered = db.SchoolSubjectsOffered.find({}, {'_id':0})
     schoolListName = db.SchoolGeneralInformation.distinct('school_name')
     index = db.SchoolGeneralInformation.count_documents({})
+    #for subject in SchoolSubjectsOffered:
+    #    print(subject['school_name'])
+    #    print(subject['subject_desc'])
     if request.method == 'POST':
         schoolFilter = request.form.get('school_name')
         schoolFilter = schoolFilter.upper()
