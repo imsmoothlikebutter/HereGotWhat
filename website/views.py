@@ -211,9 +211,9 @@ def viewCCAs():
 @login_required
 def viewSchoolInfo():
     SchoolGeneralInformation = db.SchoolGeneralInformation.find({},{'_id':0})
+    SchoolSubjectsOffered = db.SchoolSubjectsOffered.find({},{'_id':0})
     schoolListName = db.SchoolGeneralInformation.distinct('school_name')
     index = db.SchoolGeneralInformation.count_documents({})
-
     if request.method == 'POST':
         schoolFilter = request.form.get('school_name')
         schoolFilter = schoolFilter.upper()
@@ -227,7 +227,7 @@ def viewSchoolInfo():
         else:
             SchoolGeneralInformation = db.SchoolGeneralInformation.find({},{'_id':0})
 
-    return render_template("viewSchoolInfo.html", SchoolGeneralInformation=SchoolGeneralInformation)
+    return render_template("viewSchoolInfo.html", SchoolGeneralInformation=SchoolGeneralInformation, SchoolSubjectsOffered=SchoolSubjectsOffered)
 
 @views.route('/SGpopulation', methods=['GET', 'POST'])
 @login_required

@@ -27,8 +27,13 @@
           <p class="card-text">Principal: {{school.principal_name}}</p>
           <p class="card-text">Vice-Principal: {{school.first_vp_name}}</p>
           <p class="card-text">Nearest MRT: {{school.mrt_desc}}</p>
-          <p class="card-text">Nearesr Bus: {{school.bus_desc}}</p>
-
+          <p class="card-text">Nearest Bus: {{school.bus_desc}}</p>
+          <p class="card-text">Subjects Offered:</p>
+          {% for subject in SchoolSubjectsOffered%}
+            {% if subject.school_name == school.school_name %}
+                <p class="card-text">{{subject.subject_desc}}</p>
+            {%endif%}
+          {%endfor%}
         </div>
       </div>
     {%endfor%}
